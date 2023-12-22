@@ -19,10 +19,18 @@ const taskSchema = new mongoose.Schema({
       return gmtPlus6Date;
     },
   },
-  priority: String,
+  priority: {
+    type: String,
+    default: "low",
+  },
   status: {
     type: String,
-    default: "to do",
+    default: "todo",
+    required: true,
+  },
+  createdBy: {
+    type: String,
+    required: true,
   },
 });
 
