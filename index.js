@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["http://localhost:5173", "https://rp-task-manage.surge.sh", "https://658595e038826ad10726a099--tranquil-nasturtium-713f69.netlify.app"],
     credentials: true,
   })
 );
@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 // MongoDB Connection process.env.MONGODB_URI
 mongoose
-  .connect("mongodb://localhost/taskManagement")
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log("Database successfully connected!"))
   .catch((error) => console.log(error));
 
